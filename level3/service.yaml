@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-web
-  namespace: nginx-ns
+  name: nginx-web2
+  namespace: nginx-ns2
 spec:
   selector:
     app: nginx

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
-  namespace: nginx-ns
+  namespace: nginx-ns2
 spec:
   selector:
     matchLabels:
@@ -12,12 +12,23 @@ spec:
       labels:
         app: nginx
     spec:
+      # imagePullSecrets:
+      #   - name: docker-hub
       containers:
       - name: nginx
-        image: nginx:alpine
+        # image: akapolnn/nginx:test-alpine
+        image: nginx/alpine
         resources:
           limits:
             memory: "128Mi"
             cpu: "200m"
         ports:
         - containerPort: 80
+        volumeMounts:
+          - mountPath: /usr/share/nginx/html/index.html
+            name: html-index
+            subPath: index.html
+      volumes:
+        - name: html-index
+          configMap:
+            name: html-index
