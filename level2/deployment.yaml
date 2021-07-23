@@ -24,3 +24,10 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 8080
+        volumeMounts:
+          - mountPath: "/var/jenkins_home"
+            name: jenkins-data
+      volumes:
+        - name: jenkins-data
+          persistentVolumeClaim:
+            claimName: jenkins-home
