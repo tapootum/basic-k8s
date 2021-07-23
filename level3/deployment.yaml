@@ -12,12 +12,12 @@ spec:
       labels:
         app: nginx
     spec:
-      # imagePullSecrets:
-      #   - name: docker-hub
+      imagePullSecrets:
+        - name: docker-hub
       containers:
       - name: nginx
-        # image: akapolnn/nginx:test-alpine
-        image: nginx/alpine
+        image: akapolnn/nginx:test-alpine
+        # image: nginx/alpine
         resources:
           limits:
             memory: "128Mi"
