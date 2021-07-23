@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  namespace: nginx-ns
+  labels:
+    name: nginx-ingress
+spec:
+  rules:
+  - host: nginx-web.localhost.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: nginx-web
+            port: 
+              number: 80
