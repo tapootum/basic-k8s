@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jenkins-ingress
+  namespace: jenkins-ns
+  labels:
+    name: jenkins-ingress
+spec:
+  rules:
+  - host: jenkins.localhost.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: jenkins-web
+            port: 
+              number: 80
