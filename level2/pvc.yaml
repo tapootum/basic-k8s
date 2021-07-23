@@ -4,7 +4,7 @@ metadata:
   name: jenkins-home
   namespace: jenkins-ns
 spec:
-  storageClassName: 'standart'
+  storageClassName: 'standard'
   resources:
     requests:
       storage: 2Gi
